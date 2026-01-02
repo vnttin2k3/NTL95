@@ -91,7 +91,7 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="mt-8 pt-8 border-t border-gray-600 text-center">
                     <p className="text-gray-400 text-sm">
-                        &copy; 2026 NTL 95 Barber Shop | Code by Tín Võ
+                        &copy; 2026 NTL 95 Barber Shop | Code by <a href="https://www.facebook.com/tin.maxter">Tín Võ</a>
                     </p>
                 </div>
             </div>

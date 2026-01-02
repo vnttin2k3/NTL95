@@ -1,0 +1,477 @@
+@import "tailwindcss";
+
+/* ============================================
+   NTL 95 BARBER - Clean Design System
+   Simple Palette: Đỏ, Xanh lá, Trắng, Đen
+   High Contrast for Easy Reading
+   ============================================ */
+
+:root {
+  /* Primary Colors - Simple & Clean */
+  --red: #DC2626;
+  --red-hover: #B91C1C;
+  --red-light: #FEE2E2;
+
+  --green: #16A34A;
+  --green-hover: #15803D;
+  --green-light: #DCFCE7;
+
+  --black: #111827;
+  --gray-dark: #374151;
+  --gray: #6B7280;
+  --gray-light: #F3F4F6;
+  --white: #FFFFFF;
+
+  /* Semantic mapping */
+  --primary: var(--red);
+  --primary-hover: var(--red-hover);
+  --primary-light: var(--red-light);
+
+  --success: var(--green);
+  --success-hover: var(--green-hover);
+  --success-light: var(--green-light);
+
+  --warning: #F59E0B;
+  --warning-light: #FEF3C7;
+
+  --error: var(--red);
+  --error-light: var(--red-light);
+
+  /* Backgrounds */
+  --background: var(--white);
+  --surface: var(--white);
+  --surface-secondary: var(--gray-light);
+
+  /* Text - High contrast */
+  --text: var(--black);
+  --text-secondary: var(--gray-dark);
+  --text-muted: var(--gray);
+  --text-on-primary: var(--white);
+  --text-on-dark: var(--white);
+
+  /* Borders */
+  --border: #E5E7EB;
+  --border-strong: #D1D5DB;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Touch */
+  --touch-target-min: 44px;
+}
+
+/* Tailwind Theme - Map all color classes to our palette */
+@theme inline {
+  /* Primary = Red */
+  --color-primary: #DC2626;
+  --color-primary-hover: #B91C1C;
+  --color-primary-light: #FEE2E2;
+  --color-primary-dark: #991B1B;
+
+  /* Secondary = Black/Dark */
+  --color-secondary: #111827;
+  --color-secondary-light: #374151;
+  --color-secondary-dark: #030712;
+
+  /* Success = Green */
+  --color-success: #16A34A;
+  --color-success-hover: #15803D;
+  --color-success-light: #DCFCE7;
+  --color-success-dark: #14532D;
+
+  /* Warning = Amber */
+  --color-warning: #F59E0B;
+  --color-warning-light: #FEF3C7;
+  --color-warning-dark: #B45309;
+
+  /* Error = Red */
+  --color-error: #DC2626;
+  --color-error-light: #FEE2E2;
+
+  /* Backgrounds */
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F3F4F6;
+
+  /* Text */
+  --color-text: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6B7280;
+
+  /* Border */
+  --color-border: #E5E7EB;
+  --color-border-strong: #D1D5DB;
+
+  /* Fonts */
+  --font-inter: var(--font-inter);
+  --font-open-sans: var(--font-open-sans);
+}
+
+/* Global */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-open-sans), 'Open Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+  /* color removed - let Tailwind classes control */
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+a:not(.btn) {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:not(.btn):hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* ============================================
+   BUTTONS - Clean & Simple
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: var(--touch-target-min);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary = Red */
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--red-hover);
+}
+
+/* Success = Green */
+.btn-success {
+  background: var(--green);
+  color: var(--white);
+}
+
+.btn-success:hover:not(:disabled) {
+  background: var(--green-hover);
+}
+
+/* Secondary = Black */
+.btn-secondary {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--gray-dark);
+}
+
+/* Outline */
+.btn-outline {
+  background: transparent;
+  color: var(--black);
+  border: 2px solid var(--black);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Ghost */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--gray-light);
+}
+
+/* ============================================
+   CARDS - Clean white with border
+   ============================================ */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-interactive {
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+/* ============================================
+   INPUTS - Clear borders
+   ============================================ */
+.input {
+  width: 100%;
+  min-height: var(--touch-target-min);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+}
+
+/* ============================================
+   BADGES - Simple & Clear
+   ============================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.badge-success {
+  background: var(--green-light);
+  color: var(--green);
+}
+
+.badge-warning {
+  background: var(--warning-light);
+  color: #B45309;
+}
+
+.badge-error {
+  background: var(--red-light);
+  color: var(--red);
+}
+
+.badge-primary {
+  background: var(--red-light);
+  color: var(--red);
+}
+
+/* ============================================
+   HEADER - Clean white
+   ============================================ */
+.header-glass {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* ============================================
+   HERO TEXT - White on dark bg
+   ============================================ */
+.hero-text {
+  color: var(--white);
+}
+
+.hero-title {
+  color: var(--white);
+}
+
+.hero-accent {
+  color: var(--green);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 639px) {
+  .btn {
+    width: 100%;
+  }
+
+  .btn-inline {
+    width: auto;
+  }
+}
